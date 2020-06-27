@@ -1,0 +1,131 @@
+body{
+    margin: 0;
+}
+.flex_aic_jcc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*
+================================================================================================
+                                            MAIN MENU
+================================================================================================
+*/
+.menu_container{
+    height: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(220, 217, 217);
+    font-size: 1.3vw;
+    user-select: none;
+
+}
+.menu_container nav{
+    width: 5%;
+    height: 100%;
+    border: 0.1vw solid black;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+}
+.menu_container nav:hover{
+    background: black;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.menu_container div{
+    width: 3%;
+    border: 0.05vw solid black;
+}
+
+/*
+================================================================================================
+                                                TOOLS AREA
+===============================================================================================
+*/
+.tools_coontainer{
+    height: 6vw;
+    background: #ebebeb;
+    user-select: none;
+}
+.font_related_tools_container{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+#font_family_select{
+    margin: 3% 5%;
+    width: 40%;
+    height: 2vw;
+    font-size: 1.1vw;
+}
+#font_family_select option{
+    text-align: center;
+}
+#font_size_select{
+    width: 22%;
+    height: 2vw;
+    margin: 3% -5%;
+    font-size: 1.1vw;
+}
+#font_size_select option{
+    padding-left: 20%;
+}
+#plusing_font_size{
+    margin: 3% 9%;
+}
+#minusing_font_size{
+    margin: 3% -5%;
+}
+#case_modifications_select{
+    width: 20%;
+    height: 2vw;
+}
+.font_related_tool_btns:hover{
+    cursor: pointer;
+    border: 0.05vw solid black;
+    box-sizing: border-box;
+    background: rgb(224, 223, 223);
+}
+#bold{
+    margin-left: 5%;
+}
+.font_related_tool_btns{
+    width: 10%;
+    height: 2vw;
+    margin: 0% 1%;
+    font-size: 1.7vw;
+    text-align: center;
+}
+#superscript_btn{
+    font-size: 1vw;
+    padding-top: 1%;
+}
+#subscript_btn{
+    font-size: 1vw;
+    padding-top: 1%;
+}
+/*
+==================================================================================================
+                                                TEXT AREA
+====================================================================================================
+*/
+.text_field_container{
+    text-align: center;
+    background: #f5f4f4;
+}
+#main_text_area{
+    outline: none;
+    border: none;
+    box-shadow: 0 0 1vw grey;
+    margin-top: 3%;
+    padding: 5%;
+    box-sizing: border-box;
+}

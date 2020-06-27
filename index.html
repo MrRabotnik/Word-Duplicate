@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Office</title>
+    <link rel="stylesheet" href="css.css">
+    <link rel="icon" href="Images/logo.png">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+</head>
+<body>
+<!-- ------------------------------------------------------------------------------------
+                                        MAIN MENU
+------------------------------------------------------------------------------------ -->
+    <header class="menu_container">
+        <nav id="file">File</nav>
+        <div></div>
+        <nav id="home">Home</nav>
+        <div></div>
+        <nav id="insert">Insert</nav>
+        <div></div>
+        <nav id="layout">Layout</nav>
+        <div></div>
+        <nav id="view">View</nav>
+    </header>
+
+<!-- ------------------------------------------------------------------------------------
+                                        TOOLS AREA
+------------------------------------------------------------------------------------ -->
+
+    <div class="tools_coontainer">
+        <div class="font_related_tools_container">
+            <select name="font_family_select" id="font_family_select">
+                <option selected>Font Family</option>
+            </select>
+            <select name="font_size_select" id="font_size_select">
+                <option value="16" selected>16px</option>
+            </select>
+            <div id="plusing_font_size" class="flex_aic_jcc capital_and_small_btns font_related_tool_btns">A<sup>'</sup></div>
+            <div id="minusing_font_size" class="flex_aic_jcc capital_and_small_btns font_related_tool_btns">a<sup>'</sup></div>
+            <div id="bold" class="font_related_tool_btns flex_aic_jcc"><b>B</b></div>
+            <div id="italic" class="font_related_tool_btns flex_aic_jcc"><i>I</i></div>
+            <div id="underline" class="font_related_tool_btns flex_aic_jcc"><u>U</u></div>
+            <div id="deleted" class="font_related_tool_btns flex_aic_jcc">-</div>
+            <select name="" id="case_modifications_select">
+                <option selected>Aa</option>
+                <option value="">UPPERCASE</option>
+                <option value="">lowercase</option>
+                <option value="">Sentance case</option>
+                <option value="">Each Word Case</option>
+                <option value="">tOGGLE cASE</option>
+            </select>
+            <div id="superscript_btn" class="font_related_tool_btns ">x <sup>2</sup></div>
+            <div id="subscript_btn" class="font_related_tool_btns ">x <sub>2</sub></div>
+        </div>
+
+    </div>
+
+<!-- ------------------------------------------------------------------------------------
+                                        TEXT AREA
+------------------------------------------------------------------------------------ -->
+
+
+    <main class="text_field_container">
+        <textarea name="Main Text Area" id="main_text_area" cols="100" rows="40"></textarea>
+    </main>
+
+    <script src="js.js"></script>
+</body>
+</html>
