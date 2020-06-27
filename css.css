@@ -59,6 +59,13 @@ body{
     height: 100%;
     display: flex;
     flex-wrap: wrap;
+    border-right: 0.05vw solid black;
+    box-sizing: border-box;
+}
+.selected{
+    border: 0.1vw solid black;
+    box-sizing: border-box;
+    background: rgb(220, 220, 220);
 }
 #font_family_select{
     margin: 3% 5%;
@@ -107,17 +114,19 @@ body{
 #superscript_btn{
     font-size: 1vw;
     padding-top: 1%;
+    box-sizing: border-box;
 }
 #subscript_btn{
     font-size: 1vw;
     padding-top: 1%;
+    box-sizing: border-box;
 }
 /*
 ==================================================================================================
                                                 TEXT AREA
 ====================================================================================================
 */
-.text_field_container{
+#text_field_container{
     text-align: center;
     background: #f5f4f4;
 }
@@ -125,7 +134,9 @@ body{
     outline: none;
     border: none;
     box-shadow: 0 0 1vw grey;
-    margin-top: 3%;
-    padding: 5%;
+    margin-top: 2%;
+    padding: 2%;
     box-sizing: border-box;
+    width: 60%;
+    height: 100vh;
 }

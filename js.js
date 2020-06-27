@@ -1,12 +1,12 @@
 //===========================================================
 //                  DEFINING VARIABLES
 //===========================================================
-
+let textArea = $("#main_text_area")
 let fontFamilySelect = $("#font_family_select")
 let fontFamilies = ["Sans-Serif","Monospace","Fantasy","Serif"]
-let fontSizesSelect = $("#font_size_select")
-let fontSizes = [8,16,20,22,24,26,28,34,40,44,50,60,72,84]
-let incrementValue = 1
+let fontSizeSelect = $("#font_size_select")
+let fontSizes = [8,10,12,14,16,20,22,24,26,28,34,40,44,50,60,72,84]
+let incrementValue = fontSizes.indexOf(16)
 let menu_buttons = {clicked:"home"}
 
 //===========================================================
@@ -24,10 +24,10 @@ function addingFontFamilies(){
 }
 
 function addingFontSizes(){
-    fontSizesSelect.prepend($(`<option value="8">8px</option>`))
-    for(let i = 2; i < fontSizes.length; i++){
+    for(let i = 0; i < fontSizes.length; i++){
         let fontSizeSelectOptions = $(`<option value=${fontSizes[i]}>${fontSizes[i]}px</option>`)
-        fontSizesSelect.append(fontSizeSelectOptions)
+        if(fontSizes[i] === 16) fontSizeSelectOptions.attr("selected","selected")
+        fontSizeSelect.append(fontSizeSelectOptions)
     }
 }
 
@@ -43,21 +43,80 @@ function menuButtonsOnLeave(){
 //===============================
 //      TOOLS FUNCTIONALITY
 //===============================
+function fontSizeSelectChanged(){
+    textArea.css("fontSize",`${fontSizeSelect.val()}px`)
+}
+
+function fontFamilySelectChanged(){
+    textArea.css("fontFamily",`${fontFamilySelect.val()}`)
+}
+
 function increasingFontSize(){
     if(incrementValue === fontSizes.length - 1){
+        textArea.focus()
         return
     }
-    fontSizesSelect.val(fontSizes[++incrementValue])
+    fontSizeSelect.val(fontSizes[++incrementValue])
+    textArea.css("fontSize",`${fontSizes[incrementValue]}px`)
+    textArea.focus()
 }
 
 function decreasingFontSize(){
     if(incrementValue === 0){
+        textArea.focus()
         return
     }
-    fontSizesSelect.val(fontSizes[--incrementValue])
-    console.log(fontSizes[incrementValue])
+    fontSizeSelect.val(fontSizes[--incrementValue])
+    textArea.css("fontSize",`${fontSizes[incrementValue]}px`)
+    textArea.focus()
 }
 
+function makingBold(){
+    textArea.focus()
+    $(this).toggleClass("selected")
+    $(this).hasClass("selected") ? textArea.css("fontWeight","bolder") : textArea.css("fontWeight","100")
+}
+
+function makingItalic(){
+    textArea.focus()
+    $(this).toggleClass("selected")
+    $(this).hasClass("selected") ? textArea.css("fontStyle","italic") : textArea.css("fontStyle","normal")
+}
+
+function makingUnderlined(){
+    textArea.focus()
+    $("#deleted").removeClass("selected")
+    $(this).toggleClass("selected")
+    $(this).hasClass("selected") ? textArea.css("textDecoration","underline") : textArea.css("textDecoration","none")
+}
+
+function makingDeleted(){
+    textArea.focus()
+    $("#underline").removeClass("selected")
+    $(this).toggleClass("selected")
+    $(this).hasClass("selected") ? textArea.css("textDecoration","line-through") : textArea.css("textDecoration","none")
+}
+
+function makingSuperscripted(){
+    textArea.focus()
+    $(this).toggleClass("selected")
+    let currentText = textArea.val()
+    if($(this).hasClass("selected")) textArea.html(`asd<sup>${currentText}</sup>`);
+    else $("<sup></sup>").remove()
+}
+
+function makingSubscripted(){
+    textArea.focus()
+    $(this).toggleClass("selected")
+    let currentText = textArea.val()
+    if($(this).hasClass("selected")) textArea.html(`<sub>${currentText}</sub>`);
+    else $("<sub></sub>").remove()
+}
+
+function caseModifications(){
+    textArea.focus()
+    textArea.css("textTransform",$("#case_modifications_select").val())
+}
 //===========================================================
 //                  FUNCTION TRIGGERS
 //===========================================================
@@ -67,13 +126,18 @@ $(document).ready(function(){
     menuButtonsOnLeave()
 
     // EVENT HANDLERS
-    $()
+    textArea.focus()
     $(".menu_container nav").mouseenter(menuButtonsOnEnter)
     $(".menu_container").mouseleave(menuButtonsOnLeave)
+    fontFamilySelect.change(fontFamilySelectChanged)
+    fontSizeSelect.change(fontSizeSelectChanged)
     $("#plusing_font_size").click(increasingFontSize)
     $("#minusing_font_size").click(decreasingFontSize)
-
-    
-
-
+    $("#bold").click(makingBold)
+    $("#italic").click(makingItalic)
+    $("#underline").click(makingUnderlined)
+    $("#deleted").click(makingDeleted)
+    $("#superscript_btn").click(makingSuperscripted)
+    $("#subscript_btn").click(makingSubscripted)
+    $("#case_modifications_select").change(caseModifications)
 })
